@@ -18,7 +18,8 @@ public class MethodExecutionCalculationAspect {
 
     //@Around("execution(* com.springboot.intro.springboot.aop..*.*(..))")
     // tracks all the things in the aop package
-    @Around("com.springboot.intro.springboot.aop.aspect.CommonJoinPointConfig.businessLayerExecution()")
+    // the only thing that will be tracked is the method which has the @trackTime annotation defined
+    @Around("com.springboot.intro.springboot.aop.aspect.CommonJoinPointConfig.trackTimeAnnotation()")
     public void around(ProceedingJoinPoint joinPoint) throws Throwable{
         long startTime = System.currentTimeMillis();
         joinPoint.proceed();
