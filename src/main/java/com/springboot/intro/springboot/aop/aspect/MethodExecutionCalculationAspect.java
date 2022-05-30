@@ -16,7 +16,9 @@ public class MethodExecutionCalculationAspect {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Around("execution(* com.springboot.intro.springboot.aop.business.*.*(..))")
+    //@Around("execution(* com.springboot.intro.springboot.aop..*.*(..))")
+    // tracks all the things in the aop package
+    @Around("com.springboot.intro.springboot.aop.aspect.CommonJoinPointConfig.businessLayerExecution()")
     public void around(ProceedingJoinPoint joinPoint) throws Throwable{
         long startTime = System.currentTimeMillis();
         joinPoint.proceed();

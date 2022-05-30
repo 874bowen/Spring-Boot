@@ -21,7 +21,7 @@ public class BeforeAspect {
     // execution(* PACKAGE.*.*(...)) <- POINTCUT -> expression which defines what kind of methods
     // you would want to intercept
     // @Before annotation intercepts before the call has happened
-    @Before("execution(* com.springboot.intro.springboot.aop.business.*.*(..))")
+    @Before("com.springboot.intro.springboot.aop.aspect.CommonJoinPointConfig.dataLayerExecution()")
     // to get the details add JoinPoint
     public void before(JoinPoint joinPoint){ // JOINPOINT --> specific interception of the method call
         // What to do?
